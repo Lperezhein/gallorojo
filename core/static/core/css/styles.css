@@ -1,0 +1,134 @@
+/* Estilos básicos para personalizar la apariencia */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Encabezado */
+header {
+    background-color: #fa160ec7; /* Color oscuro para el encabezado */
+    color: white;
+    padding: 20px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.img-responsive {
+    max-width: 75%;
+    height: auto;
+}
+
+/* Estilos para el contenido principal */
+main {
+    padding: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #343a40;
+}
+
+
+
+
+/* Estilo para los botones */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Pie de página */
+footer {
+    background-color: #ee1109cb;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Agregar espacio entre los elementos */
+.container {
+    margin-top: 40px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-body {
+    background-color: #aebed3;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Estilo adicional para el botón */
+.card .btn {
+    background-color: #0004ffce;
+    color: white;
+    border-radius: 5px;
+}
+
+.card .btn:hover {
+    background-color: #b0b300;
+}
+
+/* Botón flotante */
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
+
+.titulo-principal {
+    font-family: 'Bangers', cursive;
+    font-size: 4rem; /* Ajusta según necesidad */
+    text-align: center;
+    color: #ff4500; /* Un rojo vibrante */
+    text-shadow: 3px 3px 5px rgba(236, 17, 17, 0.3);
+    margin-bottom: 20px;
+}
+
+

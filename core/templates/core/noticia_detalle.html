@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h1>{{ noticia.titulo }}</h1>
+<img src="{{ noticia.imagen.url }}" alt="{{ noticia.titulo }}" style="max-width: 75%; height: auto;">
+<p>{{ noticia.descripcion|safe }}</p>
+<p>{{ noticia.contenido|safe }}</p>
+<p>Publicado el: {{ noticia.fecha_publicacion }}</p>
+{% endblock %}

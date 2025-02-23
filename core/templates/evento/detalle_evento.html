@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}  <!-- Hereda de base.html -->
+
+{% block title %}{{ evento.nombre }} - Gallorojo{% endblock %}  <!-- Título de la página -->
+
+{% block content %}  <!-- Bloque de contenido -->
+<main class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8">
+            <header>
+                <h1>{{ evento.nombre }}</h1>
+            </header>
+
+            <section>
+                <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
+                {% if evento.imagen %}
+                    <img src="{{ evento.imagen.url }}" alt="{{ evento.nombre }}" class="img-fluid">
+                {% endif %}
+                <p><strong>Descripción:</strong> {{ evento.descripcion }}</p>
+            </section>
+
+            <!-- Botón para volver a la página de inicio -->
+            <a href="{% url 'home' %}" class="btn btn-primary">Volver al inicio</a>
+        </div>
+
+        <!-- Sidebar (opcional) -->
+        <aside class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title">📅 Fecha Actual</h5>
+                    <p class="card-text">{{ fecha_actual }}</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">🌍 Síguenos</h5>
+                    <a href="#" class="btn btn-outline-primary btn-sm">Facebook</a>
+                    <a href="#" class="btn btn-outline-danger btn-sm">Instagram</a>
+                    <a href="#" class="btn btn-outline-info btn-sm">Twitter</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+{% endblock %}
