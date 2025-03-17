@@ -4,34 +4,37 @@
 {% block title %}Inicio - Gallorojo{% endblock %}
 
 {% block content %}
-<h1 class="titulo-principal">CENTRO CULTURAL GALLO ROJO</h1>
+<h1 class="titulo-principal text-center fw-bold mt-4">CENTRO CULTURAL GALLO ROJO</h1>
+
 <main class="container mt-5 mb-5">
     <div class="row">
                 
         <!-- Contenido Principal -->
         <div class="col-md-8">
             <section>
-                <h1>Bienvenidos a Gallorojo</h1>
-                <p>Gallorojo es un proyecto dedicado a...</p>
-                <img src="{% static 'core/img/banner.jpg' %}" alt="Gallorojo Banner" class="img-fluid">
+                <h1 class="fw-bold mb-3">Bienvenidos a Gallorojo</h1>
+                <p class="text-muted">Gallorojo es un proyecto dedicado a...</p>
+                <img src="{% static 'core/img/banner.jpg' %}" alt="Gallorojo Banner" class="img-fluid rounded w-100 d-block">
             </section>
 
-            <section>
-                <h2>Nuestras Noticias</h2>
+            <section class="mt-5">
+                <h2 class="fw-bold pb-2 border-bottom">Nuestras Noticias</h2>
                 <div class="row">
                     {% for noticia in noticias %}
                         <div class="col-md-6 mb-4">
-                            <div class="card h-100">
+                            <div class="card h-100 shadow-sm">
                                 {% if noticia.imagen %}
                                     <img src="{{ noticia.imagen.url }}" class="card-img-top" alt="{{ noticia.titulo }}" style="height: 200px; object-fit: cover;">
                                 {% endif %}
-                                <div class="card-body text-center d-flex flex-column">
-                                    <h5 class="card-title">{{ noticia.titulo }}</h5>
-                                    <p class="card-text">{{ noticia.descripcion|truncatewords:20|safe }}</p>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title fw-bold">{{ noticia.titulo }}</h5>
+                                    <p class="card-text text-muted">{{ noticia.descripcion|truncatewords:20|safe }}</p>
                                     <a href="{% url 'noticia_detalle' noticia.id %}" class="btn btn-primary mt-auto">Leer más</a>
                                 </div>
                             </div>
                         </div>
+                    {% empty %}
+                        <p class="text-muted">No hay noticias disponibles.</p>
                     {% endfor %}
                 </div>
             </section>
@@ -39,21 +42,21 @@
 
         <!-- Sidebar -->
         <aside class="col-md-4">
-            <div class="card mb-4">
+            <div class="card mb-4 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">📅 Fecha Actual</h5>
+                    <h5 class="card-title fw-bold">📅 Fecha Actual</h5>
                     <p class="card-text">{{ fecha_actual }}</p>
                 </div>
             </div>
 
-            <div class="card mb-4">
+            <div class="card mb-4 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">🎭 Eventos Próximos</h5>
+                    <h5 class="card-title fw-bold">🎭 Eventos Próximos</h5>
                     {% if eventos_proximos %}
-                        <ul class="list-group">
+                        <ul class="list-group list-group-flush">
                             {% for evento in eventos_proximos %}
                                 <li class="list-group-item">
-                                    <strong><a href="{% url 'detalle_evento' evento.id %}">{{ evento.nombre }}</a></strong> - {{ evento.fecha }}
+                                    <strong><a href="{% url 'detalle_evento' evento.id %}" class="text-decoration-none">{{ evento.nombre }}</a></strong> - {{ evento.fecha }}
                                 </li>
                             {% endfor %}
                         </ul>
@@ -63,12 +66,12 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title">🌍 Síguenos</h5>
-                    <a href="#" class="btn btn-outline-primary btn-sm">Facebook</a>
-                    <a href="#" class="btn btn-outline-danger btn-sm">Instagram</a>
-                    <a href="#" class="btn btn-outline-info btn-sm">Twitter</a>
+                    <h5 class="card-title fw-bold">🌍 Síguenos</h5>
+                    <a href="#" class="btn btn-primary btn-sm me-2"><i class="bi bi-facebook"></i> Facebook</a>
+                    <a href="#" class="btn btn-danger btn-sm me-2"><i class="bi bi-instagram"></i> Instagram</a>
+                    <a href="#" class="btn btn-info btn-sm"><i class="bi bi-twitter"></i> Twitter</a>
                 </div>
             </div>
         </aside>
